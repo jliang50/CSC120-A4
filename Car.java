@@ -9,7 +9,7 @@ public class Car implements CarRequirements {
     private ArrayList<Passenger> passengers;
     private int maxCapacity;
 
-    /** Contructor for Car
+    /** Constructor for Car
      * Initializes the list of passengers and the specified maximum capacity
      * @param max The maximum capcities of passengers that the car can have
      */
@@ -35,22 +35,26 @@ public class Car implements CarRequirements {
     }
   
     /**
-     * Adds a passenger to the car. If the passenger can be added, which means the passenger is onboard or there are seats remaining, return true. Return false if there are no available seats.
-     * @param p The passenger that is added to the car.
-     * @return true if the passenger is already on the list or the passenger is added successfully, false if the passenger cannot be added.
+     * Adds a passenger to the car. 
+     * Return true if the passenger was added successfully. 
+     * Return false if the passenger is already on board or if there are no available seats.
+     * @param p The passenger to be added.
+     * @return true if added successfully, false otherwise.
      */
     public Boolean addPassenger(Passenger p){
-        if(passengers.contains(p)){
-            System.out.println("Passengers already onboard.");
+        if (passengers.contains(p)) {
+            System.out.println(p.getName() + " is already on board.");
+            return false;
+        } 
+        if (seatsRemaining() > 0) {
+            passengers.add(p);
             return true;
-        } else{
-            if(seatsRemaining()>0){
-                passengers.add(p);
-                return true;
-            }
+        } else {
+            System.out.println("No available seats for " + p.getName() + ".");
+            return false;
         }
-        return false;
     }
+
 
     /**
      * Removes the passenger from the car if they are onboard

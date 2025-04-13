@@ -13,32 +13,49 @@ public class Engine implements EngineRequirements {
      * @param f Engine's fuel type
      * @param currentFuelLevel Engine's current fuel level
      * @param maxFuelLevel Engine's maximum fuel level
-    */
+     */
     public Engine(FuelType f, double currentFuelLevel, double maxFuelLevel) {
         this.f = f;
         this.currentFuelLevel = currentFuelLevel;
         this.maxFuelLevel = maxFuelLevel;
 
     }
-    // Obtain the fuel type of the engine
+
+    /**
+     * Returns the fuel type used by the engine.
+     *
+     * @return the fuel type of the engine
+     */
     public FuelType getFuelType() {
         return this.f;
     }
 
-    // Obtain the maximum fuel level that the engine can hold
+    /**
+     * Returns the maximum fuel level that the engine can hold.
+     *
+     * @return the maximum fuel level
+     */
     public double getMaxFuel() {
         return maxFuelLevel;
     }
 
-    // Obtain the current fuel level of the engine
+    /**
+     * Returns the current fuel level of the engine.
+     *
+     * @return the current fuel level
+     */
     public double getCurrentFuel() {
         return currentFuelLevel;
     }
 
-    // Refuels the engine to its maximum level
+    /**
+     * Refuels the engine to its maximum fuel level.
+     * Sets the current fuel level equal to the maximum fuel level.
+     */
     public void refuel() {
         currentFuelLevel = maxFuelLevel;
     }
+
     
     /**
      * Checks if the engine has enough fuel to function. If there is, decreases the fuel level by one and return true, else return false.

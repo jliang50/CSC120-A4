@@ -18,9 +18,9 @@ public class Passenger implements PassengerRequirements {
      */
     public void boardCar(Car c) {
         if (c.addPassenger(this)) {  
-            System.out.println(this.name + "has boarded the car.");
+            System.out.println(this.name + " has boarded the car.");
         } else {
-            System.out.println(this.name + "couldn't board; the car might be full.");
+            System.out.println(this.name + " ouldn't board; the car might be full.");
         }
     }
 

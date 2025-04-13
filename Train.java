@@ -3,7 +3,7 @@ import java.util.ArrayList;
 /**
  * The Train class represents a train that consists of an engine and multiple cars.
  */
-public class Train {
+public class Train implements TrainRequirements{
     // Attributes
     private Engine engine;
     private ArrayList<Car> cars;
@@ -63,11 +63,11 @@ public class Train {
      * @return The number of available seats.
      */
     public int seatsRemaining() {
-        int OccupiedSeats = 0;
+        int occupiedSeats = 0;
         for (Car car : cars) {
-            OccupiedSeats += car.getCapacity()-car.seatsRemaining();
+            occupiedSeats += car.getCapacity()-car.seatsRemaining();
         }
-        return getMaxCapacity()-OccupiedSeats;
+        return getMaxCapacity()- occupiedSeats;
     }
 
     /**
